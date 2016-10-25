@@ -24,7 +24,7 @@ var routes = [
 
 for (var key in wp.routes) {
     var route = wp.routes[key]
-    if (route.type == 'page'){
+    if (route.type == 'page'){ // pages only for the moment
 	    routes.push({
 	    	path: wp.base_path + route.slug,
 	        component: Vue.component(route.type), // page, post, ...
@@ -37,12 +37,23 @@ const router = new VueRouter({
     routes: routes
 })
 
+// Menu Items (get it from wordpress later)
+var menu_items = {
+	home: {
+		path: wp.base_path,
+		title: 'Home'
+	},
+	menu: [
+		{path: "page-d-exemple", title: 'Page d&apos;exemple'},
+	]
+}
+
 // App
 var App = Vue.extend({
 
 	template:`
 		<div>
-			<page_header></page_header>
+			<page_header :items="menu_items"></page_header>
 	    	<router-view></router-view>
 			<page_footer></page_footer>
 		</div>
@@ -62,7 +73,13 @@ var App = Vue.extend({
         'page-title': function(pageTitle) {
             this.updateTitle(pageTitle)
         }
-    }, 
+    },
+
+    data(){
+    	return{
+    		menu_items: menu_items,
+    	}
+    },
 
     router: router
 })
