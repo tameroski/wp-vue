@@ -1,14 +1,10 @@
 <template lang="pug">
 	main 
-		section.container Content
+		section.container Homepage
 </template>
 
 <script>
 export default {
-	name: 'page'
+	name: 'home'
 }
 </script>
-
-<style scoped>
-	
-</style>

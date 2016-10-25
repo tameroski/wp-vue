@@ -7,3 +7,7 @@ export default {
 	name: 'page_footer'
 }
 </script>
+
+<style scoped>
+	
+</style>

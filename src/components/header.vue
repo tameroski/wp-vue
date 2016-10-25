@@ -10,3 +10,7 @@ export default {
 	name: 'page_header'
 }
 </script>
+
+<style scoped>
+	
+</style>
